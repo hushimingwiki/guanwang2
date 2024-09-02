@@ -175,7 +175,7 @@ const handleToDetail = (id)=>{
 
 <style scoped>
 .news{
-    margin-top: 60px;
+    /* margin-top: 60px; */
 }
 .search{
     width: 100%;

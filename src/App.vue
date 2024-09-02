@@ -8,6 +8,8 @@ import { RouterLink, RouterView } from 'vue-router'
 import Navbar from './components/Navbar.vue'
 </script>
 
-<style scoped>
-
+<style>
+body{
+  margin: 0;
+}
 </style>

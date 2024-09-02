@@ -1,48 +1,73 @@
 <template>
     <div class="box">
-        <el-carousel
-            height="calc(100vh - 60px)"
-            direction="vertical"
-            motion-blur
-            :autoplay="true"
-        >
-            <el-carousel-item v-for="item in productList" :key="item._id">
-                <div class="item" :style="{backgroundImage: `url(http://localhost:3333${item.image})`}">
-                    <el-card>
-                        <template #header>
-                        <div class="item.name">
-                            <h2>{{item.name}}</h2>
-                        </div>
-                        </template>
-                        <p style="margin-bottom: 40px;">简介：{{ item.introduction }}</p>
-                        <p style="margin-bottom: 80px; line-height: 2; text-indent: 2em;">{{ item.detail }}</p>
-                        <p>了解更多，请加微信：Lipn552576</p>
-                    </el-card>
+        <div v-for="item in productList2" :key="item._id" class="cp_introduction">
+            <div class="ci_box" :style="{backgroundImage: `url(${item.image})`}">
+                <div class="box">
+                    
                 </div>
-            </el-carousel-item>
-        </el-carousel>
+                <!-- <div>
+                    <div class="">
+                        <p>{{item.name}}</p>
+                    </div>
+                 
+                    <p style="margin-bottom: 40px;">简介：{{ item.introduction }}</p>
+                    <p style="margin-bottom: 80px; line-height: 2; text-indent: 2em;">{{ item.detail }}</p>
+                    <p>了解更多，请加微信：13320001761</p>
+                </div> -->
+            </div>
+        </div>
     </div>
 </template>
 
-<script setup>
+<script>
 import { onMounted, ref } from 'vue';
 import axios from 'axios';
 const productList = ref([]);
-
-onMounted(()=>{
-    getProduct();
-})
-
-const getProduct = async()=>{
-    const res = await axios.get('/webapi/product/list');
-    productList.value = res.data.data;
+export default{
+    data(){
+        return{
+            productList2:[
+                {
+                    image:'/src/assets/home1.jpg',
+                    name:'菜多惠',
+                    introduction:'买净菜，就上菜多惠小程序。一张是净菜配送服务，方便，快捷，新鲜的菜品全在菜多惠小程序'
+                }
+            ]
+        }
+    },
+    mounted() {
+    console.log(this.productList2,'ppp')
+    }
 }
+
+// onMounted(()=>{
+//     console.log(this.productList2,'productList2')
+//     // getProduct();
+// })
+
+// const getProduct = async()=>{
+//     const res = await axios.get('/webapi/product/list');
+//     productList.value = res.data.data;
+
+// }
 
 </script>
 
 <style scoped>
 .box{
-    margin-top: 60px;
+    /* margin-top: 60px; */
+}
+.cp_introduction{
+    margin: 0px;
+}
+.ci_box{
+    width: 100%;
+    height: calc(100vh);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -150px;
+    position: relative;
+    z-index: 99;
 }
 .item{
     width: 100%;

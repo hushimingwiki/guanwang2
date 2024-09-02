@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-carousel height="calc(100vh - 60px)">
+        <el-carousel height="calc(100vh)">
             <el-carousel-item :key="1">
                 <div class="home1"></div>
             </el-carousel-item>
@@ -20,7 +20,7 @@
 
 <style scoped>
 .el-carousel{
-    margin-top: 60px;
+    /* margin-top: 60px; */
 }
 .el-carousel div{
     width: 100%;
